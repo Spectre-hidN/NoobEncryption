@@ -15,7 +15,7 @@ This tool is inspired from caesar-cypher encryption algorithm but, the only diff
 
 ### Made Possible Due to:
 
-NoobEncryption some open source libraries to work properly:
+NoobEncryption uses some open source libraries to work properly:
 
 * [Termcolor](https://github.com/ikalnytskyi/termcolor) - Open source terminal color library
 
