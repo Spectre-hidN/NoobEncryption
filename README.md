@@ -4,6 +4,8 @@
 
 NoobEncryption is a small console-based tool for windows which allows you to Encrypt Files Which are Unicode Encoded. It is free and open source so, you can also make your own version or contributing it by Improving and adding more features to it...
 
+This tool is inspired from caesar-cypher encryption algorithm but, the only difference is it's simplicity and the ability to define custom encryption values.
+
 # Features!
 
   - Fast and efficient
