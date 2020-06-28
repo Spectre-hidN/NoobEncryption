@@ -29,7 +29,7 @@ Just Pull the repository by gitclone command or just download the Zip file to Ro
 ```sh
 gitclone https://github.com/n00b-spectre/NoobEncryption/
 cd NoobEncryption/Binaries
-./NoobEncryption_released.exe
+./NoobEncryption_released
 ```
 or you can run it manually by heading to the Binaries folder and clicking on NoobEncryption_released.exe
 
