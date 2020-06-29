@@ -27,7 +27,7 @@ NoobEncryption requires [C++ runtime library](https://support.microsoft.com/en-u
 Just Pull the repository by gitclone command or just download the Zip file to Rock!
 
 ```sh
-gitclone https://github.com/n00b-spectre/NoobEncryption/
+git clone https://github.com/n00b-spectre/NoobEncryption/
 cd NoobEncryption/Binaries
 ./NoobEncryption_released
 ```
