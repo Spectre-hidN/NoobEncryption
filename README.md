@@ -76,7 +76,7 @@ sudo apt-get install g++-mingw-w64 && sudo apt-get install gcc-mingw-w64
  
 **you can contribute it by pushing Modified file with additional features or bug fix to the Github repository.**
 
-- Git flags such as -o is for custom file name. You can set additional flags such as -static-libgcc and -static-libstdc++ to link it statically
+- G++ flags such as -o is for custom file name. You can set additional flags such as -static-libgcc and -static-libstdc++ to link it statically
 
 ## Important 
 Do not forget to hide the **Pre-processing_values.nob** file if you are Encrypting files and distributing it, because it is the dictionary for encryption values. Think it as the source code of the encryption that you do not want to share it with anyone. If you are mass-sharing any file and want to encrypt particular data then this encryption can come in handy. Just share the Pre-Processing values with the person you want to share the secret data.
