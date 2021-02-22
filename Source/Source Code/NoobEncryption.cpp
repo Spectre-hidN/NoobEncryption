@@ -1,12 +1,12 @@
 //custom encryption made by a noob, inspired from cypher
 #include <iostream>
 #include <string>
-#include<fstream>
+#include <fstream>
 #include <conio.h>
-#include<windows.h>
-#include <termcolor.hpp>
-#include<thread>
-#include<stdlib.h>
+#include <windows.h>
+#include "termcolor.hpp"
+#include <thread>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -55,7 +55,9 @@ class noobEncryption
    void encrypt_file(string file_name, int switch_name, int verbose)
     {
         ifstream flag_counts;
-        string file_name2 = file_name;
+        string split_file_name;
+        split_file_name = file_name.substr(0, file_name.find('.'));
+        split_file_name = split_file_name.substr(0, split_file_name.find('_'));
         flag_counts.open(file_name);
      while (flag_counts >> noskipws >> flag)
         {
@@ -103,7 +105,7 @@ class noobEncryption
             cout << endl << "Pre-processing values detected: " << termcolor::green << fixer << termcolor::reset << endl << endl;
             this_thread::sleep_for(1s);
             }
-            string Encrypted_file = file_name.append("_NoobEncrypted.txt");
+            string Encrypted_file = split_file_name.append("_NoobEncrypted.txt");
             ofstream data_saver;
             data_saver.open(Encrypted_file);
         cout << termcolor::red << "Encrypting...";
@@ -132,8 +134,8 @@ class noobEncryption
                        }
                      To_b_enc[i] = y[n];
                      break;
-                   } 
-            } 
+                   }
+            }
             data_saver << noskipws << To_b_enc[i];
         }
         data_saver.close();
@@ -151,11 +153,11 @@ class noobEncryption
                     data_reader >> noskipws >>To_b_enc[i];
                  }
             data_reader.close();
-            string Decrypt_File_name = file_name2.append("_NoobDecrypt.txt");
+            string Decrypt_File_name = split_file_name.append("_NoobDecrypt.txt");
             ofstream data_DEsaver;
             data_DEsaver.open(Decrypt_File_name);
         auto repeat_prvnt = [=](char checker,  int y_index) -> int
-        { 
+        {
             int x_index;
             int a;
             int x_2 = 0;
@@ -203,7 +205,7 @@ class noobEncryption
                 {
                     To_b_enc[i] = x[n];
                     break;
-                }   
+                }
                 if (n == char_count)
                     n == 0;
             }
@@ -212,7 +214,7 @@ class noobEncryption
         }
         data_DEsaver.close();
         this_thread::sleep_for(5s);
-        cout << termcolor::on_green << "DATA DECRYPTED!\n" << termcolor::reset; 
+        cout << termcolor::on_green << "DATA DECRYPTED!\n" << termcolor::reset;
         cout << termcolor::yellow << "File Saved as " << termcolor::reset << Decrypt_File_name;
         break;
         }
@@ -232,22 +234,22 @@ int main()
     int switch_name;
     this_thread::sleep_for(2s);
     cout << termcolor::green;
-    cout << R"( ________    ________   ________   ________                                                                         
-|\   ___  \ |\   __  \ |\   __  \ |\   __  \                                                                        
-\ \  \\ \  \\ \  \|\  \\ \  \|\  \\ \  \|\ /_                                                                       
- \ \  \\ \  \\ \  \\\  \\ \  \\\  \\ \   __  \                                                                      
-  \ \  \\ \  \\ \  \\\  \\ \  \\\  \\ \  \|\  \                                                                     
-   \ \__\\ \__\\ \_______\\ \_______\\ \_______\                                                                    
-    \|__| \|__| \|_______| \|_______| \|_______|                                                                    
- _______    ________    ________   ________       ___    ___  ________   _________   ___   ________   ________      
-|\  ___ \  |\   ___  \ |\   ____\ |\   __  \     |\  \  /  /||\   __  \ |\___   ___\|\  \ |\   __  \ |\   ___  \    
-\ \   __/| \ \  \\ \  \\ \  \___| \ \  \|\  \    \ \  \/  / /\ \  \|\  \\|___ \  \_|\ \  \\ \  \|\  \\ \  \\ \  \   
- \ \  \_|/__\ \  \\ \  \\ \  \     \ \   _  _\    \ \    / /  \ \   ____\    \ \  \  \ \  \\ \  \\\  \\ \  \\ \  \  
-  \ \  \_|\ \\ \  \\ \  \\ \  \____ \ \  \\  \|    \/  /  /    \ \  \___|     \ \  \  \ \  \\ \  \\\  \\ \  \\ \  \ 
+    cout << R"( ________    ________   ________   ________
+|\   ___  \ |\   __  \ |\   __  \ |\   __  \
+\ \  \\ \  \\ \  \|\  \\ \  \|\  \\ \  \|\ /_
+ \ \  \\ \  \\ \  \\\  \\ \  \\\  \\ \   __  \
+  \ \  \\ \  \\ \  \\\  \\ \  \\\  \\ \  \|\  \
+   \ \__\\ \__\\ \_______\\ \_______\\ \_______\
+    \|__| \|__| \|_______| \|_______| \|_______|
+ _______    ________    ________   ________       ___    ___  ________   _________   ___   ________   ________
+|\  ___ \  |\   ___  \ |\   ____\ |\   __  \     |\  \  /  /||\   __  \ |\___   ___\|\  \ |\   __  \ |\   ___  \
+\ \   __/| \ \  \\ \  \\ \  \___| \ \  \|\  \    \ \  \/  / /\ \  \|\  \\|___ \  \_|\ \  \\ \  \|\  \\ \  \\ \  \
+ \ \  \_|/__\ \  \\ \  \\ \  \     \ \   _  _\    \ \    / /  \ \   ____\    \ \  \  \ \  \\ \  \\\  \\ \  \\ \  \
+  \ \  \_|\ \\ \  \\ \  \\ \  \____ \ \  \\  \|    \/  /  /    \ \  \___|     \ \  \  \ \  \\ \  \\\  \\ \  \\ \  \
    \ \_______\\ \__\\ \__\\ \_______\\ \__\\ _\  __/  / /       \ \__\         \ \__\  \ \__\\ \_______\\ \__\\ \__\
     \|_______| \|__| \|__| \|_______| \|__|\|__||\___/ /         \|__|          \|__|   \|__| \|_______| \|__| \|__|
-                                                \|___|/                                  v.1.0.0alpha                           
-                                                                                                                    
+                                                \|___|/                                  v.1.0.0alpha
+
                                                                                                                     )";
     cout << termcolor::reset << endl << termcolor::on_cyan << "Hackers choice!.....Just kidding ;)";
     this_thread::sleep_for(3s);
@@ -292,11 +294,11 @@ int main()
     else if(decission == "help me" || decission == "HELP ME")
     {
         system("CLS");
-        cout << endl << termcolor::magenta << R"( _     _       _          ______  _______ _ 
+        cout << endl << termcolor::magenta << R"( _     _       _          ______  _______ _
 | |   | |     | |        |  ___ \(_______) |
 | |__ | | ____| |____    | | _ | |_____  | |
 |  __)| |/ _  ) |  _ \   | || || |  ___) |_|
-| |   | ( (/ /| | | | |  | || || | |_____ _ 
+| |   | ( (/ /| | | | |  | || || | |_____ _
 |_|   |_|\____)_| ||_/   |_||_||_|_______)_|
                 |_|                         )";
 
@@ -308,7 +310,7 @@ int main()
     cout << termcolor::on_yellow << "Type 5 T0." << termcolor::reset << termcolor::cyan << " Encrypt DATA from text " << termcolor::reset << termcolor::red << "IN VERBOSE MODE \n" << termcolor::reset;
     cout << termcolor::on_yellow << "Type 6 F0R." << termcolor::reset << termcolor::cyan << " Guide For setting up development enviroment \n" << termcolor::reset;
     cout << endl;
-    cout << termcolor::yellow << "Or else, type " << termcolor::reset << termcolor::on_red << "EXIT \n\n" << termcolor::reset << endl; 
+    cout << termcolor::yellow << "Or else, type " << termcolor::reset << termcolor::on_red << "EXIT \n\n" << termcolor::reset << endl;
     cout << termcolor::magenta << "Your Command N00B -> ";
     getline(cin,decission);
     if (decission == "3")
@@ -317,11 +319,11 @@ int main()
         this_thread::sleep_for(1s);
         cout << termcolor::green << "<<<<<<<<< Guide  to develop custom pre-processing values >>>>>>>>> \n"  << termcolor::reset;
         this_thread::sleep_for(2s);
-        cout << R"( 1. With any note editor {NOTEPAD++ RECOMENDED} Open Pre-Processing_values.nob 
- 2. Assign Custom values by taking the reference of the pre-defined values 
- x[n] and y[n] are the values that the function will take as "Reference" and "Assingner" respectively 
- Reference is the value that the function will fetch from the file to be encrypted and the Assingner is the value that will be assingned to the fetched value 
- 
+        cout << R"( 1. With any note editor {NOTEPAD++ RECOMENDED} Open Pre-Processing_values.nob
+ 2. Assign Custom values by taking the reference of the pre-defined values
+ x[n] and y[n] are the values that the function will take as "Reference" and "Assingner" respectively
+ Reference is the value that the function will fetch from the file to be encrypted and the Assingner is the value that will be assingned to the fetched value
+
  I Know It's getting complicated but bare with me. You are the future of this LAME project...
             X[n] = Y[n]
  meaning, If X[n] will be equal to the fetched characters from the file (To be encrypted) then the characters will be equal to Y[n] So, In layman's  term You just have to modify x[n] to equate it with y[n].
@@ -338,7 +340,7 @@ int main()
 
                 //decrypting data
                 while in loop if data[i] == y[n], then data[i] == x[n].
-                  
+
  Give a strong values to the characters so, that it will be hard to brute force...)";
         cout << endl << endl;
         cout << termcolor::red << "DO NOT " << termcolor:: yellow << "Assingn same values twice in 'Reference' and 'Assingner' \n";
@@ -358,7 +360,7 @@ int main()
         this_thread::sleep_for(2s);
         cout << termcolor::blue << R"(___  ____ _  _     .._  _ ____ ___ ____ ____ ..
 |  \ |___ |  | .   ''|\ | |  |  |  |___ [__  ''
-|__/ |___  \/  ,     | \| |__|  |  |___ ___]   
+|__/ |___  \/  ,     | \| |__|  |  |___ ___]
                                                )";
 
         cout << termcolor::reset << endl << endl;
@@ -373,10 +375,10 @@ int main()
         cout << "This is because the file you are trying to encrypt is not UTF-8, UTF-16, etc. encoded. Anything which can be viewed in native Text-Editor can be encrypted. If any file is in zip, rar format or anything with custom encryption cannot be encrypted. Ex: Binary Files, .zip, .rar, etc. \n \n" << termcolor::reset;
         cout << endl;
         cout << R"(Now, Some (1-2) people are asking about the GUI version of this S@#T.
- Here's the answer: 
+ Here's the answer:
  This project was made to improve my skills and anything that will improve it, I will definitely do it. The only reason GUI was not completed because I am still Learning it.
  As soon as I will be able to write GUI Application, I will look forward to Make This S@#T's GUI version available so, that more pro N00Bs can enjoy this
- 
+
  I don't know if anyone is interested in this application But, If you Made this Far then, I really Appreciate this and you are no longer a N00B...)";
     cout << endl << endl;
     cout << termcolor::on_red << "EXIT" << termcolor::reset;
@@ -405,13 +407,13 @@ int main()
         cout << termcolor::green << "<<<<<<Guide For setting up enviroment for developing this S@#t>>>>>> \n\n" << termcolor::reset;
         this_thread::sleep_for(2s);
         cout << R"(This is a short guide about setting up development enviroment...
-        
+
 Pre-requisites::
 
      1. Integrated Software Developement (aka IDE)
      2. A C++/C compiler (I am using MinGw x64, in this case)
      3. Time and patience to understand the source code
-     
+
 -----------------------------------------------------------------------------------------------------------------
 
 Firstly, Open the source file NoobEncryption.cpp and try to understand the logics behind it
@@ -420,7 +422,7 @@ To compile the modified C++ make sure that MinGw compiler path set in the enviro
 To SET in the enviroment variable go to properties of "this PC" then go to "advanced settings" then click on "Enviroment Variables".
 Then under "system variables" search for "path" click on it and click on edit. A new window should Pop-up. Click on "New" then paste the bin folder path inside the Mingw directory (Normally it should be, C:/MinGw/bin), click ok/apply/close and head to main desktop
 open cmd in the directory of the source file and type the command "g++ NoobEncryption.cpp -o noob", wait for compilation and you are done! (unless, you do not get any errors).
-                     
+
                         NOTE: g++ will only work if it's in the enviroment variable or else, you have to copy the source file to the bin folder
                              -o flag refers to custom file name
 
@@ -449,5 +451,5 @@ You can also link it statically, if you want...)";
         exit(1);
     }
     getch();
-    return 0; 
+    return 0;
 }
