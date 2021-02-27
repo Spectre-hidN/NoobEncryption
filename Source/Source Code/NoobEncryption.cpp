@@ -1,4 +1,4 @@
-//custom encryption made by a noob, inspired from cypher
+//custom method to encode data by changing the values of each character in a unicode encoded file.
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -372,15 +372,7 @@ int main()
         cout << "How I can use it in various real life scenerio? \n" << termcolor::yellow;
         cout << "Basically, this project was made to learn file-handling in-depth and improve my coding and keyboard typing skills. But, If you are a pro N00B and like to store important personal data in files which can be open in text format then Encryption can help. If you are using this S@#t then don't forget to hide the 'Pre-Processing_values.nob' file. \n \n" << termcolor::magenta;
         cout << "I can't Encrypt my file with this S@#T. \n" << termcolor::yellow;
-        cout << "This is because the file you are trying to encrypt is not UTF-8, UTF-16, etc. encoded. Anything which can be viewed in native Text-Editor can be encrypted. If any file is in zip, rar format or anything with custom encryption cannot be encrypted. Ex: Binary Files, .zip, .rar, etc. \n \n" << termcolor::reset;
-        cout << endl;
-        cout << R"(Now, Some (1-2) people are asking about the GUI version of this S@#T.
- Here's the answer:
- This project was made to improve my skills and anything that will improve it, I will definitely do it. The only reason GUI was not completed because I am still Learning it.
- As soon as I will be able to write GUI Application, I will look forward to Make This S@#T's GUI version available so, that more pro N00Bs can enjoy this
-
- I don't know if anyone is interested in this application But, If you Made this Far then, I really Appreciate this and you are no longer a N00B...)";
-    cout << endl << endl;
+        cout << "This is because the file you are trying to encrypt is not unicode encoded (UTF-8, UTF-16...etc.). Anything which can be viewed in native Text-Editor can be encrypted.\n" << termcolor::reset << endl;
     cout << termcolor::on_red << "EXIT" << termcolor::reset;
     }
     else if (decission == "5")
